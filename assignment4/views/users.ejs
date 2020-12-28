@@ -1,0 +1,13 @@
+<%- include('./includes/head.ejs') %>
+</head>
+
+<body>
+  <ul>
+    <% if (usuarios.length === 0) { %>
+      <h1> Nao ha usuarios cadastrados </h1>
+    <% } %>
+    <% for (let user of usuarios) { %>
+      <li><%= user %></li>
+    <% } %>
+  </ul>
+</body>
