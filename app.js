@@ -17,12 +17,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(routes);
 
-app.use((req, res, next) => {
-  // res.status(404).sendFile(path.join(__dirname, 'views', 'not-found.html'));
-  const pageTitle = 'Page Not Found'
-  res.render('not-found', { pageTitle });
-});
-
 app.listen(3000);
 
 
