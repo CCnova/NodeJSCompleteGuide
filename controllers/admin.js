@@ -6,7 +6,18 @@ exports.getAddProductPage = (req, res, next) => {
 };
 
 exports.postProduct = (req, res, next) => {
-  const product = new Product(req.body.title);
+  const title = req.body.title;
+  const price = req.body.price;
+  const imageUrl = req.body.imageUrl;
+  const description = req.body.description;
+
+  const product = new Product(
+    title,
+    imageUrl,
+    description,
+    price,
+  );
+
   product.save();
   res.redirect('/');
 };

@@ -9,8 +9,11 @@
       <% for (let product of products) { %>
         <h1><%= product.title %></h1>
         <div>
-          <h2>$19.99</h2>
-          <p>A very interesting book</p>
+          <img src="<%= product.imageUrl %>" alt="<%= product.title %>">
+        </div>
+        <div>
+          <h2>$ <%= product.price %></h2>
+          <p><%= product.description %></p>
         </div>
         <div>
           <button>Add to cart</button>
