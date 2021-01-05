@@ -2,7 +2,7 @@ const Product = require('../models/product');
 
 exports.getAddProductPage = (req, res, next) => {
   const pageTitle = 'Add Product';
-  res.render('add-product', { pageTitle, path: '/admin/add-product' });
+  res.render('admin/add-product', { pageTitle, path: '/admin/add-product' });
 };
 
 exports.postProduct = (req, res, next) => {
@@ -11,14 +11,14 @@ exports.postProduct = (req, res, next) => {
   res.redirect('/');
 };
 
-exports.getProductsPage = async (req, res, next) => {
-  const pageTitle = 'Produtos';
+exports.getProductsPage = (req, res, next) => {
+  const pageTitle = 'Admin Produtos';
+
   Product.fetchAll((products) => {
-    res.render('shop', {
+    res.render('admin/products', {
       products,
       pageTitle,
-      path: '/',
+      path: '/admin/products',
     });
   });
-  
 };

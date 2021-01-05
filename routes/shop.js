@@ -4,9 +4,16 @@ const router = express.Router();
 const rootDir = require('../util/path');
 
 const {
-  productsController
+  shopController
 } = require('../controllers');
 
-router.get('/', productsController.getProductsPage);
+router.get('/', shopController.getIndexPage);
+
+router.get('/products', shopController.getProductsPage);
+
+router.get('/cart', shopController.getCartPage);
+
+router.get('/checkout', shopController.getCheckoutPage);
+
 
 module.exports = router;
