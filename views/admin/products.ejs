@@ -2,4 +2,30 @@
 </head>
 <body>
   <%- include('../includes/navigation.ejs') %>
+
+  <main>
+    <% if (products.length > 0) { %>
+    <div class="grid">
+      <% for (let product of products) { %>
+        <h1><%= product.title %></h1>
+        <div>
+          <img src="<%= product.imageUrl %>" alt="<%= product.title %>">
+        </div>
+        <div>
+          <h2>$ <%= product.price %></h2>
+          <p><%= product.description %></p>
+        </div>
+        <div>
+          <a href="/admin/edit-product">Edit</button>
+            <form action="/admin/delete-product" method="POST">
+              <button type="submit">Delete</button>
+            </form>
+        </div>
+      <% } %>
+    </div>
+    <% } else { %>
+      <h1>Nao existem produtos cadastrados</h1>
+    <% } %>
+  </main>
+
   <%- include('../includes/end.ejs') %>

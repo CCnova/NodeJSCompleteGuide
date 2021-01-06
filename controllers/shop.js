@@ -34,6 +34,15 @@ exports.getCartPage = (req, res, next) => {
   });
 };
 
+exports.getOrdersPage = (req, res, next) => {
+  const pageTitle = 'Pedidos';
+
+  res.render('shop/orders', {
+    path: '/orders',
+    pageTitle,
+  });
+};
+
 exports.getCheckoutPage = (req, res, next) => {
   const pageTitle = 'Checkout';
 
