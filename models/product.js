@@ -24,6 +24,8 @@ class Product {
   }
 
   save() {
+    this.id = Math.random().toString();
+
     getProductsFromFile((products) => {
       products.push(this);
       fs.writeFile(filePath, JSON.stringify(products), (err) => {
@@ -34,6 +36,14 @@ class Product {
 
   static fetchAll(callBack) {
     getProductsFromFile(callBack);
+  }
+
+  static findById(id, callBack) {
+    getProductsFromFile((products) => {
+      const product = products.find(product => product.id === id);
+
+      callBack(product);
+    });
   }
 }
 

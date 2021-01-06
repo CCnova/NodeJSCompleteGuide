@@ -1,7 +1,7 @@
 const path = require('path');
+const rootDir = require('../util/path');
 const express = require('express');
 const router = express.Router();
-const rootDir = require('../util/path');
 
 const {
   shopController
@@ -10,6 +10,8 @@ const {
 router.get('/', shopController.getIndexPage);
 
 router.get('/products', shopController.getProductsPage);
+
+router.get('/products/:productId', shopController.getProductPage);
 
 router.get('/cart', shopController.getCartPage);
 

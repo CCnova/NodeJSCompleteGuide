@@ -24,6 +24,22 @@ exports.getProductsPage = (req, res, next) => {
   });
 };
 
+exports.getProductPage = (req, res, next) => {
+  
+  const productId = req.params.productId;
+
+  Product.findById(productId, (product) => {
+    const pageTitle = product.title;
+    const path = '/products';
+
+    res.render('shop/product-detail', {
+      pageTitle,
+      product,
+      path,
+    });
+  });
+};
+
 
 exports.getCartPage = (req, res, next) => {
   const pageTitle = 'Carrinho';
